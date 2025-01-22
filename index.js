@@ -31,6 +31,9 @@ import projectRoutes from "./server/routes/projectRoutes.js";
 app.use("/api/user", userRoutes);
 app.use("/api/project", projectRoutes);
 
+
+const __dirname = path.resolve();
+
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
 app.get("*", (req, res) => {
