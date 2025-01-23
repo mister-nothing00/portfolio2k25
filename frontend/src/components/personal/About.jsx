@@ -25,6 +25,7 @@ export default function About() {
   return (
     <>
       <Flex
+        id="about"
         flexDirection={"column"}
         justifyContent={"center"}
         alignItems={"center"}
@@ -56,7 +57,7 @@ export default function About() {
           mt={10}
           gap={6}
           wrap="wrap"
-          justifyContent="space-around"
+          justifyContent={{ base: "center", md: "space-around" }}
           alignItems="center"
         >
           {certificates.map((certificate, index) => (
@@ -68,11 +69,14 @@ export default function About() {
             >
               <Image
                 src={certificate.thumbnail}
-                alt={certificate.name}
+                alt={`Certificate of ${certificate.name}`}
                 width="240px"
                 borderRadius="md"
                 boxShadow="md"
-                _hover={{transform:"scale(1.1)", transition:"transform 0.4s ease-in-out"}}
+                _hover={{
+                  transform: "scale(1.1)",
+                  transition: "transform 0.4s ease-in-out",
+                }}
               />
               <Text
                 mt={4}
@@ -88,10 +92,11 @@ export default function About() {
           ))}
         </Flex>
         <Box
-          display={"flex"}
+          display="flex"
           justifyContent="center"
-          alignItems={"center"}
+          alignItems="center"
           mt={75}
+          animation="bounce 2s infinite"
         >
           <IoChevronDownCircle size={28} />
         </Box>

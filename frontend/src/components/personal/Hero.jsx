@@ -13,6 +13,7 @@ export default function Hero() {
   return (
     <>
       <Flex
+        id="hero"
         minWidth={"100%"}
         flexDirection={{ sm: "column-reverse", md: "row" }}
         justifyContent={{ sm: "center", md: "space-between" }}
@@ -117,7 +118,11 @@ export default function Hero() {
           >
             Francesco
           </Text>
-          <Text fontFamily={"Montserrat"} textAlign={{sm:"center", md:"left"}} fontSize={"md"}>
+          <Text
+            fontFamily={"Montserrat"}
+            textAlign={{ sm: "center", md: "left" }}
+            fontSize={"md"}
+          >
             An entry-level full-stack developer specializing in React Native,
             WordPress, and the MERN stack, passionate about building intuitive
             and impactful digital solutions.
@@ -180,6 +185,7 @@ export default function Hero() {
         justifyContent="center"
         alignItems={"center"}
         mb={4}
+        animation="bounce 2s infinite"
       >
         <IoChevronDownCircle size={22} />
       </Box>

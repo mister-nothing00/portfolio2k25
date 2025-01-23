@@ -55,9 +55,7 @@ export const UserProvider = ({ children }) => {
     }
   }
 
-  useEffect(() => {
-    fetchUser();
-  });
+ 
   async function fetchUser() {
     try {
       const { data } = await axios.get("/api/user/me");
@@ -72,6 +70,10 @@ export const UserProvider = ({ children }) => {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    fetchUser();
+  });
 
   return (
     <UserContext.Provider

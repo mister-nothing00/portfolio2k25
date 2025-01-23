@@ -8,11 +8,14 @@ export default function Home() {
   return (
     <>
       <Hero />
+
       <About />
+
       <Cards />
+
       <MoreInfo />
-      <Footer/>
       
+      <Footer />
     </>
   );
 }

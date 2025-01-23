@@ -11,12 +11,14 @@ export default function Footer() {
   return (
     <>
       <Flex
-        flexDirection={"row"}
-        justifyContent={"space-between"}
+        flexDirection={{sm:"column-reverse",md:"row"}}
+        justifyContent={{sm:"center",md:"space-between"}}
         alignItems={"center"}
         padding={4}
+        
+       
       >
-        <Text fontFamily={"Spline Sans"} fontWeight={"medium"}>
+        <Text fontFamily={"Montserrat"} fontWeight={"normal"} fontSize={"sm"} textAlign={{sm:"center", md:"inherit"}} marginTop={{sm:4, md:0}}>
           Made with ❤️ by Francesco.
         </Text>
         <Box
@@ -24,6 +26,7 @@ export default function Footer() {
           justifyContent={"end"}
           alignItems={"center"}
           gapX={4}
+          
         >
           {/* LinkedIn Button */}
           <Button

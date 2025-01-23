@@ -10,14 +10,14 @@ import { Link as RouterLink } from "react-router-dom";
 import { Button } from "../ui/button";
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "../ui/menu";
 import { useColorMode } from "../ui/color-mode";
-import { LuMoon, LuSun } from "react-icons/lu";
 import { IoApps } from "react-icons/io5";
 import { UserData } from "../../context/User";
+import { IoIosArrowDropup } from "react-icons/io";
 
 export default function Navbar() {
   const { toggleColorMode, colorMode } = useColorMode();
   const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
-  const { logoutUser } = UserData();
+  const { logoutUser, user, isAuth } = UserData();
 
   const handleLogout = () => {
     logoutUser();
@@ -49,6 +49,7 @@ export default function Navbar() {
         {/*link* */}
         <Box
           display={"flex"}
+          as={"nav"}
           justifyContent={"flex-end"}
           alignItems={"center"}
           gapX={4}
@@ -57,32 +58,35 @@ export default function Navbar() {
         >
           <Link
             display={isMobile ? "none" : "block"}
-            as={RouterLink}
+            as={"a"}
+            href={"#about"}
             fontFamily={"Montserrat"}
             fontSize={"sm"}
             fontWeight={"semibold"}
             transition={"color 0.4s ease"}
             _hover={{
               color: "#bfdbfe",
+              textDecoration: "none",
               transition: "color 0.4s ease",
             }}
           >
-            {" "}
             about
           </Link>
           <Link
             display={isMobile ? "none" : "block"}
-            as={RouterLink}
+            as={"a"}
+            href={"#creations"}
             fontFamily={"Montserrat"}
             fontSize={"sm"}
             fontWeight={"semibold"}
             transition={"color 0.4s ease"}
             _hover={{
               color: "#bfdbfe",
+              textDecoration: "none",
               transition: "color 0.4s ease",
             }}
           >
-            projects
+            creations
           </Link>
 
           {/*LOGIN; ADMIN; LOGOUT and links for mobile* */}
@@ -106,8 +110,8 @@ export default function Navbar() {
               {isMobile ? (
                 <MenuItem asChild value="about">
                   <Link
-                    to={"#about"}
-                    as={RouterLink}
+                    as={"a"}
+                    href={"#about"}
                     textDecoration={"none"}
                     fontFamily={"Montserrat"}
                     fontSize={"sm"}
@@ -119,7 +123,7 @@ export default function Navbar() {
                       transition: "rounded 0.3s ease-in",
                     }}
                   >
-                    About
+                    about
                   </Link>
                 </MenuItem>
               ) : (
@@ -128,8 +132,8 @@ export default function Navbar() {
               {isMobile ? (
                 <MenuItem asChild value="projects">
                   <Link
-                    as={RouterLink}
-                    to={"#projects"}
+                    as={"a"}
+                    href={"#creations"}
                     textDecoration={"none"}
                     fontFamily={"Montserrat"}
                     fontSize={"sm"}
@@ -141,7 +145,7 @@ export default function Navbar() {
                       transition: "rounded 0.3s ease-in",
                     }}
                   >
-                    Projects
+                    creations
                   </Link>
                 </MenuItem>
               ) : (
@@ -183,7 +187,7 @@ export default function Navbar() {
                       transition: "rounded  0.3s ease-in",
                     }}
                   >
-                    Admin
+                    {user.role === "admin" ? " Admin" : null}
                   </Link>
                 </MenuItem>
               )}
@@ -201,19 +205,37 @@ export default function Navbar() {
                     transition: "rounded 0.3s ease",
                   }}
                 >
-                  Logout
+                  {isAuth ? "Logout" : null}
                 </Link>
               </MenuItem>
             </MenuContent>
           </MenuRoot>
         </Box>
 
-        {/*toggle color mode* */}
+        <Box display="flex" justifyContent={"flex-end"} px={4}>
+          <Link as={"a"} href={"#hero"}>
+            <IconButton
+              position={"fixed"}
+              bottom={16}
+              right={2}
+              variant="ghost"
+              rounded={"full"}
+              size="md"
+              animation="bounce 4s infinite"
+              cursor="pointer"
+            >
+              <IoIosArrowDropup size={32} />
+            </IconButton>
+          </Link>
+        </Box>
       </Flex>
     </>
   );
 }
 
+{
+  /*toggle color mode* */
+}
 {
   /*
    <Box display="flex" justifyContent={"flex-end"} px={4}>

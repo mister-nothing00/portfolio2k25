@@ -6,6 +6,7 @@ import {
   FaVectorSquare,
   FaMobile,
   FaWordpressSimple,
+  FaGithub,
 } from "react-icons/fa";
 import { MdOutlineMonitor } from "react-icons/md";
 
@@ -45,9 +46,9 @@ export default function MoreInfo() {
             rounded={"md"}
             textAlign="center"
             _hover={{
-              boxShadow:" rgba(149, 157, 165, 0.2) 0px 4px 8px",
-              transform:"translateY(-8px)",
-              transition:"all 0.2s ease"
+              boxShadow: "  rgb(38, 57, 77) 0px 20px 30px -10px",
+              transform: "translateY(-8px)",
+              transition: "all 0.2s ease",
             }}
           >
             <FaCode color="#647bbc" size={22} />
@@ -71,9 +72,9 @@ export default function MoreInfo() {
             rounded={"md"}
             textAlign="center"
             _hover={{
-              boxShadow:" rgba(149, 157, 165, 0.2) 0px 4px 8px",
-              transform:"translateY(-8px)",
-              transition:"all 0.2s ease"
+              boxShadow: "  rgb(38, 57, 77) 0px 20px 30px -10px",
+              transform: "translateY(-8px)",
+              transition: "all 0.2s ease",
             }}
           >
             <FaMobile color="#647bbc" size={22} />
@@ -97,9 +98,9 @@ export default function MoreInfo() {
             rounded={"md"}
             textAlign="center"
             _hover={{
-              boxShadow:" rgba(149, 157, 165, 0.2) 0px 4px 8px",
-              transform:"translateY(-8px)",
-              transition:"all 0.2s ease"
+              boxShadow: " rgb(38, 57, 77) 0px 20px 30px -10px",
+              transform: "translateY(-8px)",
+              transition: "all 0.2s ease",
             }}
           >
             <MdOutlineMonitor color="#647bbc" size={22} />
@@ -123,9 +124,9 @@ export default function MoreInfo() {
             rounded={"md"}
             textAlign="center"
             _hover={{
-              boxShadow:" rgba(149, 157, 165, 0.2) 0px 4px 8px",
-              transform:"translateY(-8px)",
-              transition:"all 0.2s ease"
+              boxShadow: "  rgb(38, 57, 77) 0px 20px 30px -10px",
+              transform: "translateY(-8px)",
+              transition: "all 0.2s ease",
             }}
           >
             <FaVectorSquare color="#647bbc" size={22} />
@@ -149,11 +150,10 @@ export default function MoreInfo() {
             rounded={"md"}
             textAlign="center"
             _hover={{
-              boxShadow:" rgba(149, 157, 165, 0.2) 0px 4px 8px",
-              transform:"translateY(-8px)",
-              transition:"all 0.2s ease"
+              boxShadow: " rgb(38, 57, 77) 0px 20px 30px -10px",
+              transform: "translateY(-8px)",
+              transition: "all 0.2s ease",
             }}
-            
           >
             <FaWordpressSimple color="#647bbc" size={22} />
             <Text fontSize={"2xl"} mt={4}>
@@ -162,6 +162,31 @@ export default function MoreInfo() {
             <Text fontSize={"sm"} color={"gray.400"} mt={2}>
               Building dynamic, customizable, and SEO-friendly websites with
               WordPress to meet diverse business needs.
+            </Text>
+          </Box>
+        </GridItem>
+        <GridItem>
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={"center"}
+            backgroundColor={"gray.900"}
+            padding={8}
+            rounded={"md"}
+            textAlign="center"
+            _hover={{
+              boxShadow: " rgb(38, 57, 77) 0px 20px 30px -10px",
+              transform: "translateY(-8px)",
+              transition: "all 0.2s ease",
+            }}
+          >
+            <FaGithub color="#647bbc" size={22} />
+            <Text fontSize={"xl"} mt={4}>
+              GitHub
+            </Text>
+            <Text fontSize={"sm"} color={"gray.400"} mt={2}>
+              Streamlining version control with Git, ensuring
+              efficient and organized development workflows.
             </Text>
           </Box>
         </GridItem>

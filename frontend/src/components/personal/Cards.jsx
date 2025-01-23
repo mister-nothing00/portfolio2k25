@@ -39,7 +39,7 @@ export default function Cards() {
   }, [fetchProjects]);
 
   return (
-    <Flex flexDirection={"column"} fontFamily={"Montserrat"} my={150}>
+    <Flex id="creations" flexDirection={"column"} fontFamily={"Montserrat"} my={150}>
       <Box display={"flex"} alignItems={"center"} mb={4}>
         <BsStars size={isMobile ? 18 : 24} color="gray.100" />
         <Heading
@@ -168,6 +168,8 @@ export default function Cards() {
               justifyContent="center"
               alignItems={"center"}
               mb={4}
+              animation="bounce 2s infinite"
+       
             >
               <IoChevronDownCircle size={32} />
             </Box>

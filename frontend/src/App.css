@@ -3,6 +3,39 @@
 /*
 FONT: Montserrat (Headiline), Spline Sans (Body)
 */
+html {
+  scroll-behavior: smooth; /* Scorrimento fluido */
+}
+
+/* Webkit scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px; /* Larghezza */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f4f8; /* Sfondo */
+  border-radius: 4px; /* Arrotondamento */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bfdbfe; /* Colore barra */
+  border-radius: 4px; /* Arrotondamento */
+  border: 2px solid #f0f4f8; /* Bordo esterno */
+}
+
+/* Firefox scrollbar styling */
+scrollbar-width: thin; /* Larghezza sottile */
+scrollbar-color: #bfdbfe #f0f4f8; /* Colore barra e sfondo */
+
+/* Nascondi barra su mobile (opzionale) */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  html {
+    scrollbar-width: none;
+  }
+}
 
 .container-main {
   padding: 16px;
@@ -17,7 +50,6 @@ FONT: Montserrat (Headiline), Spline Sans (Body)
 }
 
 .swiper-slide {
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
