@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-2k25",
+  "name": "portfolio-divita",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "Francesco Davide di Vita",
   "license": "ISC",
-  "description": "Portfolio personale con admin dashboard",
+  "description": "Portfolio personale - Francesco Davide di Vita",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.5.1",

@@ -5,6 +5,7 @@ import { IoChevronDownCircle } from "react-icons/io5";
 import frontEnd from "../../assets/master-frontend.jpg";
 import fullStack from "../../assets/master-fullstack.jpg";
 import reactNative from "../../assets/react-native.png";
+import { memo } from "react";
 
 const certificates = [
   {
@@ -21,7 +22,7 @@ const certificates = [
   },
 ];
 
-export default function About() {
+ function About() {
   return (
     <>
       <Flex
@@ -29,20 +30,19 @@ export default function About() {
         flexDirection={"column"}
         justifyContent={"center"}
         alignItems={"center"}
-        minWidth={"100%"}
-        px={4}
+        width={"100%"}
+        px={{base:2, md:4}}
         my={150}
       >
         {/* Presentazione */}
         <Text
           fontFamily={"Montserrat"}
           fontSize={{ sm: "xl", md: "4xl" }}
-          lineHeight={{ sm: "40px", md: "64px" }}
-          letterSpacing={1}
+          lineHeight={{ sm: "80px", md: "64px" }}
+          letterSpacing={{base:2, md:1}}
           fontWeight={"medium"}
           width={"100%"}
-          textAlign={{ sm: "left", md: "left" }}
-          mx={"auto"}
+          textAlign={{ base: "center", md: "left" }}
         >
           I'm Francesco Di Vita, an entry-level developer passionate about
           technology and innovation. Specializing in full-stack development with
@@ -70,11 +70,11 @@ export default function About() {
               <Image
                 src={certificate.thumbnail}
                 alt={`Certificate of ${certificate.name}`}
-                width="240px"
+                width={{base:"200px", md:"300px"}}
                 borderRadius="md"
                 boxShadow="md"
                 _hover={{
-                  transform: "scale(1.1)",
+                  transform: "scale(1.05)",
                   transition: "transform 0.4s ease-in-out",
                 }}
               />
@@ -106,3 +106,4 @@ export default function About() {
     </>
   );
 }
+export default memo(About);

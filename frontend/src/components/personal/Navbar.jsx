@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   Box,
   Flex,
@@ -9,13 +10,11 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import { Button } from "../ui/button";
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "../ui/menu";
-import { useColorMode } from "../ui/color-mode";
 import { IoApps } from "react-icons/io5";
 import { UserData } from "../../context/User";
 import { IoIosArrowDropup } from "react-icons/io";
 
-export default function Navbar() {
-  const { toggleColorMode, colorMode } = useColorMode();
+function Navbar() {
   const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
   const { logoutUser, user, isAuth } = UserData();
 
@@ -32,11 +31,11 @@ export default function Navbar() {
         px={4}
       >
         {/*heading* */}
-        <Box display={"block"} width={"100%"} mx={"auto"}>
+        <Box display={"block"} width={"100%"}>
           <Link to={"/"} as={RouterLink} textDecoration={"none"}>
             <Heading
               fontFamily={"Montserrat"}
-              fontSize={"20px"}
+              fontSize={isMobile ? "16px" : "20px"}
               fontWeight={"semibold"}
               letterSpacing={1}
               _hover={{ color: "#bfdbfe", transition: "color 0.4s ease-in" }}
@@ -103,7 +102,7 @@ export default function Navbar() {
                   color: "#bfdbfe",
                 }}
               >
-                {isMobile ? <IoApps /> : "other"}
+                {!isMobile ? "other" : <IoApps />}
               </Button>
             </MenuTrigger>
             <MenuContent>
@@ -211,44 +210,23 @@ export default function Navbar() {
             </MenuContent>
           </MenuRoot>
         </Box>
-
-        <Box display="flex" justifyContent={"flex-end"} px={4}>
-          <Link as={"a"} href={"#hero"}>
-            <IconButton
-              position={"fixed"}
-              bottom={16}
-              right={2}
-              variant="ghost"
-              rounded={"full"}
-              size="md"
-              animation="bounce 4s infinite"
-              cursor="pointer"
-            >
-              <IoIosArrowDropup size={32} />
-            </IconButton>
-          </Link>
-        </Box>
       </Flex>
+
+      <Box position={"fixed"} bottom={50} right={0}>
+        <Link as={"a"} href={"#hero"}>
+          <IconButton
+            variant="ghost"
+            rounded={"full"}
+            size="md"
+            animation="bounce 4s infinite"
+            cursor="pointer"
+          >
+            <IoIosArrowDropup size={32} />
+          </IconButton>
+        </Link>
+      </Box>
     </>
   );
 }
 
-{
-  /*toggle color mode* */
-}
-{
-  /*
-   <Box display="flex" justifyContent={"flex-end"} px={4}>
-          <IconButton
-            position={"fixed"}
-            bottom={8}
-            right={2}
-            onClick={toggleColorMode}
-            variant="ghost"
-            rounded={"full"}
-            size="xs"
-          >
-            {colorMode === "light" ? <LuSun /> : <LuMoon />}
-          </IconButton>
-        </Box>* */
-}
+export default memo(Navbar);

@@ -1,5 +1,5 @@
+import { memo } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Spinner } from "@chakra-ui/react";
 import { UserData } from "./context/User.jsx";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
@@ -8,9 +8,10 @@ import Login from "./pages/Login";
 import Navbar from "./components/personal/Navbar";
 
 import "./App.css";
+import { Spinner } from "@chakra-ui/react";
 
 function App() {
-  const { loading, user, isAuth } = UserData();
+  const { loading, user } = UserData();
 
   return (
     <>
@@ -22,17 +23,15 @@ function App() {
             <Navbar />
           </header>
           <main className="container-main">
+           
             <Routes>
               <Route
                 path="/admin"
-                element={user.role ? <Admin /> : <Login />}
+                element={user.role === "admin" ? <Admin /> : <Login />}
               />
               <Route path="/" element={<Home />} />
               <Route path="/register" element={<Register />} />
-              <Route
-                path="/login"
-                element={<Login />}
-              />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </main>
         </BrowserRouter>
@@ -41,4 +40,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);

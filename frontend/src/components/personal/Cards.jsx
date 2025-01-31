@@ -8,7 +8,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { BsStars } from "react-icons/bs";
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -28,7 +28,7 @@ const truncateText = (text, maxLength) => {
   return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 };
 
-export default function Cards() {
+ function Cards() {
   const { projects, fetchProjects } = useProjects();
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
@@ -176,3 +176,4 @@ export default function Cards() {
     </Flex>
   );
 }
+export default memo(Cards);

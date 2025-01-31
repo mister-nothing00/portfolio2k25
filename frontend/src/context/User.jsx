@@ -6,7 +6,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState([]);
   const [isAuth, setIsAuth] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   async function registerUser(name, email, password, navigate) {
     setLoading(true);
@@ -37,7 +37,6 @@ export const UserProvider = ({ children }) => {
 
       setUser(data.user);
       setIsAuth(true);
-      setLoading(false);
       navigate("/admin");
     } catch (error) {
       alert(error.message);
@@ -55,7 +54,6 @@ export const UserProvider = ({ children }) => {
     }
   }
 
- 
   async function fetchUser() {
     try {
       const { data } = await axios.get("/api/user/me");
@@ -73,7 +71,7 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     fetchUser();
-  });
+  }, []);
 
   return (
     <UserContext.Provider

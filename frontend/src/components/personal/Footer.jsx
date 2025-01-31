@@ -1,24 +1,23 @@
 import { Box, Button, Flex, Text} from "@chakra-ui/react";
 import {Link} from "react-router-dom"
-import React from "react";
+import React, { memo } from "react";
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { useColorMode } from "../ui/color-mode";
 
-export default function Footer() {
-  const { colorMode } = useColorMode();
-  const isDark = colorMode === "dark";
+function Footer() {
+  
 
   return (
     <>
       <Flex
-        flexDirection={{sm:"column-reverse",md:"row"}}
-        justifyContent={{sm:"center",md:"space-between"}}
+        flexDirection={{base:"column-reverse",md:"row"}}
+        justifyContent={{base:"center",md:"space-between"}}
         alignItems={"center"}
         padding={4}
         
+        
        
       >
-        <Text fontFamily={"Montserrat"} fontWeight={"normal"} fontSize={"sm"} textAlign={{sm:"center", md:"inherit"}} marginTop={{sm:4, md:0}}>
+        <Text fontFamily={"Montserrat"} fontWeight={"normal"} fontSize={"sm"} textAlign={{base:"center", md:"inherit"}} marginTop={{base:4, md:0}}>
           Made with ❤️ by Francesco.
         </Text>
         <Box
@@ -31,7 +30,7 @@ export default function Footer() {
           {/* LinkedIn Button */}
           <Button
             rounded={"full"}
-            backgroundColor={isDark ? "white" : "black"}
+            backgroundColor={ "white" }
             variant={"outline"}
           >
             <Link
@@ -39,7 +38,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin color={isDark ? "black" : "white"} />
+              <FaLinkedin color={ "black"} />
             </Link>
           </Button>
 
@@ -54,10 +53,12 @@ export default function Footer() {
             gap={2}
           >
             <FaEnvelope />
-            <Text fontSize="sm">francescodavidedivita@gmail.com</Text>
+            <Text fontSize="sm">me@gmail.com</Text>
           </Button>
         </Box>
       </Flex>
     </>
   );
 }
+
+export default memo(Footer);

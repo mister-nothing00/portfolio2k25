@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 
 import {
@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { MdOutlineMonitor } from "react-icons/md";
 
-export default function MoreInfo() {
+ function MoreInfo() {
   return (
     <>
       <Grid
@@ -18,15 +18,14 @@ export default function MoreInfo() {
         justifyContent={"center"}
         alignItems={"center"}
         width={"100%"}
-        templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} // Responsività
+        templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
         gapX={6}
         gapY={8}
-        mx={"auto"}
         my={150}
-        px={4}
+        px={{base:2, md:4}}
       >
         {/* Titolo */}
-        <GridItem colSpan={{ base: 2, md: 3 }} textAlign="center">
+        <GridItem colSpan={{ base: 1, md: 3 }} textAlign="center">
           <Text fontSize={"4xl"} mb={4}>
             Need more info?
           </Text>
@@ -185,8 +184,8 @@ export default function MoreInfo() {
               GitHub
             </Text>
             <Text fontSize={"sm"} color={"gray.400"} mt={2}>
-              Streamlining version control with Git, ensuring
-              efficient and organized development workflows.
+              Streamlining version control with Git, ensuring efficient and
+              organized development workflows.
             </Text>
           </Box>
         </GridItem>
@@ -194,3 +193,5 @@ export default function MoreInfo() {
     </>
   );
 }
+
+export default memo(MoreInfo);
