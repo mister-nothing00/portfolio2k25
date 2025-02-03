@@ -42,7 +42,7 @@ const certificates = [
           letterSpacing={{base:2, md:1}}
           fontWeight={"medium"}
           width={"100%"}
-          textAlign={{ base: "center", md: "left" }}
+          textAlign={{ base: "left", md: "left" }}
         >
           I'm Francesco Di Vita, an entry-level developer passionate about
           technology and innovation. Specializing in full-stack development with
